@@ -63,7 +63,8 @@
                 dataType: 'json'  //json形式指定
             })
                 .done(function (data) {
-                    $('#content').text(data)
+                    $('#content').text(data.content)
+                    console.log(data);
                 });
         });
     });

@@ -62,14 +62,8 @@ class FruitsController < ApplicationController
   end
 
   def content
-    @content = Fruit.find(fruit_params[:id]).content
-    render json: @fruit
-  end
-  
-  private
-  
-  def fruit_params
-    params.require(:fruit).permit(:id)
+    @content = Fruit.find(fruit_params[:id])
+    render json: @content
   end
 
   private
@@ -80,6 +74,6 @@ class FruitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fruit_params
-      params.require(:fruit).permit(:id, :content)
+      params.require(:fruit).permit(:id)
     end
 end
