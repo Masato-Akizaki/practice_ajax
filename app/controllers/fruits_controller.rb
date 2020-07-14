@@ -62,7 +62,7 @@ class FruitsController < ApplicationController
   end
 
   def content
-    @content = Fruit.find(fruit_params[:id])
+    @content = Fruit.find(fruit_params[:id]).content
     render json: @content
   end
 
