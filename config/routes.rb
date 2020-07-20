@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'practice/index'
+  post 'practice/index'
   resources :fruits do
     collection do
       get 'content'
