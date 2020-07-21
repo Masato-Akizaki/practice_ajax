@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :apples
   get 'practice/index'
   post 'practice/index'
   resources :fruits do
