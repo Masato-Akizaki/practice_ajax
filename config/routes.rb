@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'top#index'
   resources :apples
   get 'practice/index'
   post 'practice/index'
