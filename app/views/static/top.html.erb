@@ -16,3 +16,8 @@
   <%= button_tag 'Post Ajax', id: 'btn2'%>
 
 <p>パターン3：AjaxのリクエストはRails & レスポンス以降はJavaScriptでやる方式</p>
+<div id="ajax-test3">Ajax: Rails & JS</div>
+  <%= form_with url: static_ajax_update2_path, id: 'ajax-request-3' do |f| %>
+    <%= f.text_field :data %>
+    <%= f.submit 'Post Ajax' %>
+  <% end %>
