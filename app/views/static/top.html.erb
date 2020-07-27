@@ -1,0 +1,10 @@
+<h1 id="top">Static</h1>
+<p>Find me in app/views/static/top.html.erb</p>
+
+<div id="ajax-test1">Ajax: Rails依存 </div>
+
+<div id="ajax-request1">
+  <%= form_with url: static_ajax_update_path do |f| %>
+    <%= f.text_field :data %>
+    <%= f.submit 'Post Ajax' %>
+  <% end %>
