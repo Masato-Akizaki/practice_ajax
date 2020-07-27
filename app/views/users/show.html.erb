@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+    <%= check_box_tag 'user[private]', true, @user.private, {
+        onchange: '$(this).data("params", "user[private]=" + this.checked)',
+        data: {
+            url: user_url + '/user_private/',
+            method: :post,
+            remote: true
+        }
+    } %>
+  <span id="true_or_false">
+    <%= render :partial => 'private_boolean' %>
+  </span>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
