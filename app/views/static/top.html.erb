@@ -1,0 +1,23 @@
+<h1 id="top">Static</h1>
+<p>Find me in app/views/static/top.html.erb</p>
+
+<p>パターン1：Rails推奨方式</p>
+<div id="ajax-test1">Ajax: Rails依存</div>
+
+<div id="ajax-request1">
+  <%= form_with url: static_ajax_update_path do |f| %>
+    <%= f.text_field :data %>
+    <%= f.submit 'Post Ajax' %>
+  <% end %>
+
+<p>パターン2：フロント側はJavaScriptだけでやる方式</p>
+ <div id="ajax-test4">Ajax: ほぼJS(jQuery)</div>
+  <%= text_field_tag 'static[ajax_data2]' %>
+  <%= button_tag 'Post Ajax', id: 'btn2'%>
+
+<p>パターン3：AjaxのリクエストはRails & レスポンス以降はJavaScriptでやる方式</p>
+<div id="ajax-test3">Ajax: Rails & JS</div>
+  <%= form_with url: static_ajax_update2_path, id: 'ajax-request-3' do |f| %>
+    <%= f.text_field :data %>
+    <%= f.submit 'Post Ajax' %>
+  <% end %>
