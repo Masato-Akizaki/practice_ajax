@@ -7,7 +7,21 @@
 
 <p>
   <strong>Completed:</strong>
-  <%= @task.completed %>
+    <%= check_box_tag 'task[private]', true, @task.completed, {
+        onchange: '$(this).data("params", "task[private]=" + this.checked)',
+        data: {
+            url: tasks_url + '/completed/',
+            method: :post,
+            remote: true
+        }
+    } %>
+    <span id="true_or_false">
+      <% if @task.completed == true %>
+          <span class="true">completed</span>
+      <% else %>
+           <span class="false">Not completed</span>
+      <% end %>
+    </span>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
