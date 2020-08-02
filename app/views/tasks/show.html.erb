@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+    <%= check_box_tag 'task[private]', true, @task.completed, {
+        onchange: '$(this).data("params", "task[private]=" + this.checked)',
+        data: {
+            url: task_url + '/completed/',
+            method: :post,
+            remote: true
+        }
+    } %>
+    <span id="true_or_false">
+      <%= render partial: 'completed_boolean', locals: {task: @task} %>
+    </span>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
