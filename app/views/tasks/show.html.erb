@@ -10,17 +10,13 @@
     <%= check_box_tag 'task[private]', true, @task.completed, {
         onchange: '$(this).data("params", "task[private]=" + this.checked)',
         data: {
-            url: tasks_url + '/completed/',
+            url: task_url + '/completed/',
             method: :post,
             remote: true
         }
     } %>
     <span id="true_or_false">
-      <% if @task.completed == true %>
-          <span class="true">completed</span>
-      <% else %>
-           <span class="false">Not completed</span>
-      <% end %>
+      <%= render partial: 'completed_boolean', locals: {task: @task} %>
     </span>
 </p>
 

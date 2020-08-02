@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post 'static/ajax_update2', to: 'static#ajax_update2'
   resources :tasks do
     collection do
-	  patch '/:id/completed' => 'tasks#completed'
+    post '/:id/completed' => 'tasks#completed'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
